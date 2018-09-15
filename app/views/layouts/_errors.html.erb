@@ -1,0 +1,10 @@
+<div class="container">
+    <% if !flash.empty? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%- flash.each do |name, msg| -%>
+            <li id="flash_<%= name %>"><%= msg %></li>
+        <%- end -%>
+    </div>
+    <% end %>
+</div>
