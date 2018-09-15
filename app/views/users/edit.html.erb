@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Create Account</h2>
+
+  <%= form_for @user do |f| %>
+
+    <div class="field form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", value: @user.email class: "form-control" %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :first_name %><br />
+      <%= text_field_tag :first_name, autocomplete: "first_name", value: @user.first_name, class: "form-control" %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :last_name %><br />
+      <%= text_field_tag :last_name, autocomplete: "last_name", value: @user.last_name, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <br/>
+  <%= render "devise/shared/links" %>
+</div>

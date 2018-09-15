@@ -11,17 +11,18 @@
 
   <body>
     <%= render 'layouts/nav' %>
-    <%= render 'layouts/errors' %>
     <% if user_signed_in? %>
       <div class="row">
         <div class="col-lg-2">
             <%= render 'layouts/sidebar' %>
         </div>
         <div class="col-lg-10">
+          <%= render 'layouts/errors' %>
           <%= yield %>
         </div>
       </div>
     <% else %>
+          <%= render 'layouts/errors' %>      
       <%= yield %>
     <% end %>
   </body>

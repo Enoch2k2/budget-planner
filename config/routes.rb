@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root to: 'welcome#index'
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users, :controllers => { registrations: 'registrations' }
+  
+  # /users routes
+  get '/:slug', to: 'users#show', as: 'user'
+  get '/:slug/edit', to: 'users#edit', as: 'edit_user'
+  patch '/:slug', to: 'users#update'
 end
