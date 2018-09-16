@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Create Budget</h2>
+
+  <%= form_for [@user, @budget], url: user_budgets_path(@user.slug) do |f| %>
+
+    <div class="field form-group">
+      <%= f.label :title %><br />
+      <%= f.text_field :title, autofocus: true, autocomplete: "title", class: "form-control", required: true %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :monthly_income %><br />
+      <%= f.text_field :monthly_income, autofocus: true, autocomplete: "monthly_income", class: "form-control", required: true %>
+    </div>
+
+    <%= f.hidden_field :user_id, value: @user.id %>
+
+    <div class="actions">
+      <%= f.submit "Create Budget", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <br/>
+</div>

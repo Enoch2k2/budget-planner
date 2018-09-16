@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="text-center">Budget Lists</h1><br/>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>#</th>
+            <th>Budget Title</th>
+            <th>Monthly Income</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <% @budgets.each.with_index(1) do |budget, i| %>
+                <tr>
+                    <td><%= i %></td>
+                    <td><%= budget.title %></td>
+                    <td>$<%= budget.monthly_income %></td>
+                    <td><%= link_to  "Edit", edit_user_budget_path(@user.slug, budget.slug) %></td>
+                    <td><%= link_to  "Delete", destroy_user_budget_path(@user.slug, budget.slug), method: :delete %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

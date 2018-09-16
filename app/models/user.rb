@@ -4,6 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+   extend Slugifiable::ClassMethods
+   include Slugifiable::InstanceMethods
+
+  has_many :budgets
+
   validates :email, uniqueness: true
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -12,11 +17,7 @@ class User < ApplicationRecord
     first_name + " " + last_name
   end
 
-  def slug
-    full_name.split(" ").collect{|name| name.downcase}.join("-")
-  end
+  
 
-  def self.find_by_slug(slug)
-    User.all.find{|user| user.slug == slug}
-  end
+  
 end

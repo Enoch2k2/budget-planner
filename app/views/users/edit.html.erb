@@ -18,11 +18,6 @@
       <%= f.text_field :last_name, autocomplete: "last_name", value: @user.last_name, class: "form-control", required: true %>
     </div>
 
-    <div class="field form-group">
-      <%= f.label :monthly_income %><br />
-      <%= f.text_field :monthly_income, autocomplete: "monthly_income", value: @user.monthly_income, class: "form-control", required: true %>
-    </div>
-
     <div class="actions">
       <%= f.submit "Update Account", class: "btn btn-primary" %>
     </div>
