@@ -1,27 +1,31 @@
 <div class="container">
-  <h2>Create Account</h2>
+  <h2>Edit Account</h2>
 
-  <%= form_for @user do |f| %>
+  <%= form_for @user, url: user_path(@user.slug), method: :patch do |f| %>
 
     <div class="field form-group">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", value: @user.email class: "form-control" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", value: @user.email, class: "form-control", required: true %>
     </div>
 
     <div class="field form-group">
       <%= f.label :first_name %><br />
-      <%= text_field_tag :first_name, autocomplete: "first_name", value: @user.first_name, class: "form-control" %>
+      <%= f.text_field :first_name, autocomplete: "first_name", value: @user.first_name, class: "form-control", required: true %>
     </div>
 
     <div class="field form-group">
       <%= f.label :last_name %><br />
-      <%= text_field_tag :last_name, autocomplete: "last_name", value: @user.last_name, class: "form-control" %>
+      <%= f.text_field :last_name, autocomplete: "last_name", value: @user.last_name, class: "form-control", required: true %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :monthly_income %><br />
+      <%= f.text_field :monthly_income, autocomplete: "monthly_income", value: @user.monthly_income, class: "form-control", required: true %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up", class: "btn btn-primary" %>
+      <%= f.submit "Update Account", class: "btn btn-primary" %>
     </div>
   <% end %>
   <br/>
-  <%= render "devise/shared/links" %>
 </div>
