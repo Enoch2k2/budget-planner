@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Create Budget</h2>
 
-  <%= form_for [@user, @budget], url: user_budgets_path(@user.slug) do |f| %>
+  <%= form_for [@user, @budget] do |f| %>
 
     <div class="field form-group">
       <%= f.label :title %><br />

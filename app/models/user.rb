@@ -4,9 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-   extend Slugifiable::ClassMethods
-   include Slugifiable::InstanceMethods
-
   has_many :budgets
 
   validates :email, uniqueness: true
@@ -14,7 +11,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
 
   def full_name
-    first_name + " " + last_name
+    first_name + " " + last_name if first_name && last_name
   end
 
   

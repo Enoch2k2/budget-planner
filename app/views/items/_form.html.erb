@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Create Expense</h2>
+
+  <%= form_for [user, budget, item] do |f| %>
+
+    <div class="field form-group">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "title", class: "form-control", required: true %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :cost %><br />
+      <%= f.text_field :cost, autofocus: true, autocomplete: "monthly_income", class: "form-control", required: true %>
+    </div>
+
+    <div class="field form-group">
+        <%= f.label "Category" %><br />
+        <%= f.collection_select :category_id, Category.all, :id, :name %>
+    </div>
+
+    <div class="actions">
+      <%= yield f %>
+    </div>
+  <% end %>
+  <br/>
+</div>

@@ -5,6 +5,8 @@
             <th>#</th>
             <th>Budget Title</th>
             <th>Monthly Income</th>
+            <th>Expenses</th>
+            <th>Remaining Income</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
@@ -12,10 +14,12 @@
             <% @budgets.each.with_index(1) do |budget, i| %>
                 <tr>
                     <td><%= i %></td>
-                    <td><%= budget.title %></td>
-                    <td>$<%= budget.monthly_income %></td>
-                    <td><%= link_to  "Edit", edit_user_budget_path(@user.slug, budget.slug) %></td>
-                    <td><%= link_to  "Delete", destroy_user_budget_path(@user.slug, budget.slug), method: :delete %></td>
+                    <td><%= link_to budget.title, user_budget_path(@user, budget) %></td>
+                    <td>$<%= budget.monthly_income.round(2) %></td>
+                    <td>$<%= budget.expense_total.round(2) %></td>
+                    <td>$<%= budget.income_remaining.round(2) %></td>
+                    <td><%= link_to  "Edit", edit_user_budget_path(@user, budget) %></td>
+                    <td><%= link_to  "Delete", user_budget_path(@user, budget), method: :delete %></td>
                 </tr>
             <% end %>
         </tbody>

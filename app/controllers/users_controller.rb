@@ -14,10 +14,10 @@ class UsersController < ApplicationController
 
     def update
         if @user.update(user_params)
-            redirect_to user_path(@user.slug)
+            redirect_to user_path(@user)
         else
             flash[:notice] = @user.errors.full_messages.join("\n")
-            redirect_to edit_user_path(@user.slug)
+            redirect_to edit_user_path(@user)
         end
     end
 
@@ -28,11 +28,11 @@ class UsersController < ApplicationController
 
         def user_not_authorized
             flash[:notice] = "You are not authorized to view this page"
-            redirect_to user_path(current_user.slug)
+            redirect_to user_path(current_user)
         end
 
         def set_user
-            @user = User.find_by_slug(params[:slug])
+            @user = User.find_by_id(params[:id])
         end
 
         def user_params

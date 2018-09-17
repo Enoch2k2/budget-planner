@@ -1,0 +1,206 @@
+<div class="container">
+    <h1><%= @budget.title %></h1>
+    <h3><%= link_to "Add Expense", new_user_budget_item_path(@user, @budget) %></h3>
+    <hr/>
+    <h3>Bills</h3>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>#</th>
+            <th>Bill</th>
+            <th>Cost</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <% @budget.bills.each.with_index(1) do |bill, index| %>
+                <tr>
+                    <td><%= index %></td>
+                    <td><%= bill.name %></td>
+                    <td>$<%= '%.2f' % bill.cost.round(2) %></td>
+                    <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, bill) %></td>
+                    <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, bill), method: :delete %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>Bill Total</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$<%= '%.2f' % @budget.bills_total %></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Groceries</h3>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>#</th>
+            <th>Grocery</th>
+            <th>Cost</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <% @budget.groceries.each.with_index(1) do |grocery, index| %>
+                <tr>
+                    <td><%= index %></td>
+                    <td><%= grocery.name %></td>
+                    <td>$<%= '%.2f' % grocery.cost.round(2) %></td>
+                    <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, grocery) %></td>
+                    <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, grocery), method: :delete %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>Grocery Total</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$<%= '%.2f' % @budget.groceries_total %></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Entertainment</h3>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>#</th>
+            <th>Entertainment</th>
+            <th>Cost</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <% @budget.entertainment.each.with_index(1) do |entertainment, index| %>
+                <tr>
+                    <td><%= index %></td>
+                    <td><%= entertainment.name %></td>
+                    <td>$<%= '%.2f' % entertainment.cost.round(2) %></td>
+                    <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, entertainment) %></td>
+                    <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, entertainment), method: :delete %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>Entertainment Total</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$<%= '%.2f' % @budget.entertainment_total %></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Restaurants</h3>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>#</th>
+            <th>Restaurant</th>
+            <th>Cost</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <% @budget.restaurants.each.with_index(1) do |restaurant, index| %>
+                <tr>
+                    <td><%= index %></td>
+                    <td><%= restaurant.name %></td>
+                    <td>$<%= '%.2f' % restaurant.cost.round(2) %></td>
+                    <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, restaurant) %></td>
+                    <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, restaurant), method: :delete %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>Restaurant Total</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$<%= '%.2f' % @budget.restaurants_total %></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Misc</h3>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>#</th>
+            <th>Item</th>
+            <th>Cost</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <% @budget.misc.each.with_index(1) do |misc, index| %>
+                <tr>
+                    <td><%= index %></td>
+                    <td><%= misc.name %></td>
+                    <td>$<%= '%.2f' % misc.cost.round(2) %></td>
+                    <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, misc) %></td>
+                    <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, misc), method: :delete %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>Misc Total</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$<%= '%.2f' % @budget.misc_total %></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Savings</h3>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>#</th>
+            <th>Savings Deposit</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <% @budget.savings.each.with_index(1) do |saving, index| %>
+                <tr>
+                    <td><%= index %></td>
+                    <td>$<%= '%.2f' % saving.cost.round(2) %></td>
+                    <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, saving) %></td>
+                    <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, saving), method: :delete %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <h3>Total</h3>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>Expense Total</th>
+            <th>Monthly Income</th>
+            <th>Monthly Income Remaining</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$<%= '%.2f' % @budget.expense_total.round(2) %></td>
+                <td>$<%= '%.2f' % @budget.monthly_income %></td>
+                <td>$<%= '%.2f' % @budget.income_remaining %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

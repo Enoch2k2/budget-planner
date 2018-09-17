@@ -1,3 +1,23 @@
 <div class="container">
-    <h1>Edit <%= @budget.title %></h1>
+  <h2>Create Budget</h2>
+
+  <%= form_for [@user, @budget] do |f| %>
+
+    <div class="field form-group">
+      <%= f.label :title %><br />
+      <%= f.text_field :title, autofocus: true, autocomplete: "title", value: @budget.title, class: "form-control", required: true %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :monthly_income %><br />
+      <%= f.text_field :monthly_income, autofocus: true, autocomplete: "monthly_income", value: @budget.monthly_income, class: "form-control", required: true %>
+    </div>
+
+    <%= f.hidden_field :user_id, value: @user.id %>
+
+    <div class="actions">
+      <%= f.submit "Update Budget", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <br/>
 </div>

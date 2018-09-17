@@ -18,10 +18,11 @@ class BudgetsController < ApplicationController
         @budget = Budget.new(budget_params)
         authorize @budget
         if @budget.save
-            redirect_to user_budgets_path(@user.slug)
+            flash[:notice] = "#{@budget.title} has been created"
+            redirect_to user_budgets_path(@user)
         else
-            flash[:notice] = "Must have a title"
-            redirect_to new_user_budget_path(@user.slug)
+            flash[:danger] = "Must have a title"
+            redirect_to new_user_budget_path(@user)
         end
     end
 
@@ -34,12 +35,19 @@ class BudgetsController < ApplicationController
     end
 
     def update
-
+        if @budget.update(budget_params)
+            flash[:notice] = "#{@budget.title} has been updated"
+            redirect_to user_budgets_path(@user)
+        else
+            flash[:danger] = "Fill out all of the required fields"
+            redirect_to edit_user_budget_path(@user, @budget)
+        end
     end
 
     def destroy
         @budget.destroy
-        redirect_to user_budgets_path(@user.slug)
+        flash[:notice] = "#{@budget.title} has been successfully deleted"
+        redirect_to user_budgets_path(@user)
     end
 
     private
@@ -49,15 +57,15 @@ class BudgetsController < ApplicationController
 
         def user_not_authorized
             flash[:notice] = "You are not authorized to view this page"
-            redirect_to user_path(current_user.slug)
+            redirect_to user_path(current_user)
         end
 
         def set_user
-            @user = User.find_by_slug(params[:user_slug])
+            @user = User.find_by_id(params[:user_id])
         end
 
         def set_budget
-            @budget = Budget.find_by_slug(params[:slug])
+            @budget = Budget.find_by_id(params[:id])
         end
 
         def budget_params

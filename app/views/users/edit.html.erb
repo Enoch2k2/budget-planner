@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Edit Account</h2>
 
-  <%= form_for @user, url: user_path(@user.slug), method: :patch do |f| %>
+  <%= form_for @user do |f| %>
 
     <div class="field form-group">
       <%= f.label :email %><br />
