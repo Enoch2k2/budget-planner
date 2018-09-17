@@ -35,6 +35,39 @@
         </tbody>
     </table>
 
+    <h3>Medical</h3>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>#</th>
+            <th>Bill</th>
+            <th>Cost</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <% @budget.medical.each.with_index(1) do |medical, index| %>
+                <tr>
+                    <td><%= index %></td>
+                    <td><%= medical.name %></td>
+                    <td>$<%= '%.2f' % medical.cost.round(2) %></td>
+                    <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, medical) %></td>
+                    <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, medical), method: :delete %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <th>Medical Total</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>$<%= '%.2f' % @budget.medical_total %></td>
+            </tr>
+        </tbody>
+    </table>
+
     <h3>Groceries</h3>
     <table class="table table-striped table-bordered table-hover">
         <thead>

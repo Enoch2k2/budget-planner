@@ -45,6 +45,16 @@ class Budget < ApplicationRecord
     self.restaurants.each{|r| total += r.cost}
     total.round(2)
   end
+  
+  def medical
+    self.items.select{|item| item if item.category.name == "Medical"}
+  end
+  
+  def medical_total
+    total = 0
+    self.medical.each{|m| total += m.cost}
+    total.round(2)
+  end
 
   def misc
     self.items.select{|item| item if item.category.name == "Misc"}
@@ -67,7 +77,7 @@ class Budget < ApplicationRecord
   end
 
   def expense_total
-    bills_total + entertainment_total + restaurants_total + misc_total + savings_total + groceries_total
+    bills_total + entertainment_total + restaurants_total + misc_total + savings_total + groceries_total + medical_total
   end
 
   def income_remaining
