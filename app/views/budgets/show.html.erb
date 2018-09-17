@@ -8,6 +8,8 @@
             <th>#</th>
             <th>Bill</th>
             <th>Cost</th>
+            <th>Date Due</th>
+            <th>Date Paid</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
@@ -17,6 +19,8 @@
                     <td><%= index %></td>
                     <td><%= bill.name %></td>
                     <td>$<%= '%.2f' % bill.cost.round(2) %></td>
+                    <td><%= bill.date_due %></td>
+                    <td><%= bill.date_paid %></td>
                     <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, bill) %></td>
                     <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, bill), method: :delete %></td>
                 </tr>
@@ -41,6 +45,8 @@
             <th>#</th>
             <th>Bill</th>
             <th>Cost</th>
+            <th>Date Due</th>
+            <th>Date Paid</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
@@ -50,6 +56,8 @@
                     <td><%= index %></td>
                     <td><%= medical.name %></td>
                     <td>$<%= '%.2f' % medical.cost.round(2) %></td>
+                    <td><%= medical.date_due %></td>
+                    <td><%= medical.date_paid %></td>
                     <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, medical) %></td>
                     <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, medical), method: :delete %></td>
                 </tr>
@@ -74,6 +82,7 @@
             <th>#</th>
             <th>Grocery</th>
             <th>Cost</th>
+            <th>Date Paid</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
@@ -83,6 +92,7 @@
                     <td><%= index %></td>
                     <td><%= grocery.name %></td>
                     <td>$<%= '%.2f' % grocery.cost.round(2) %></td>
+                    <td><%= grocery.date_paid %></td>
                     <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, grocery) %></td>
                     <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, grocery), method: :delete %></td>
                 </tr>
@@ -107,6 +117,8 @@
             <th>#</th>
             <th>Entertainment</th>
             <th>Cost</th>
+            <th>Date Due</th>
+            <th>Date Paid</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
@@ -116,6 +128,8 @@
                     <td><%= index %></td>
                     <td><%= entertainment.name %></td>
                     <td>$<%= '%.2f' % entertainment.cost.round(2) %></td>
+                    <td><%= entertainment.date_due %></td>
+                    <td><%= entertainment.date_paid %></td>
                     <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, entertainment) %></td>
                     <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, entertainment), method: :delete %></td>
                 </tr>
@@ -140,6 +154,7 @@
             <th>#</th>
             <th>Restaurant</th>
             <th>Cost</th>
+            <th>Date Paid</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
@@ -149,6 +164,7 @@
                     <td><%= index %></td>
                     <td><%= restaurant.name %></td>
                     <td>$<%= '%.2f' % restaurant.cost.round(2) %></td>
+                    <td><%= restaurant.date_paid %></td>
                     <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, restaurant) %></td>
                     <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, restaurant), method: :delete %></td>
                 </tr>
@@ -173,6 +189,7 @@
             <th>#</th>
             <th>Item</th>
             <th>Cost</th>
+            <th>Date Paid</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
@@ -182,6 +199,7 @@
                     <td><%= index %></td>
                     <td><%= misc.name %></td>
                     <td>$<%= '%.2f' % misc.cost.round(2) %></td>
+                    <td><%= misc.date_paid %></td>
                     <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, misc) %></td>
                     <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, misc), method: :delete %></td>
                 </tr>
@@ -205,6 +223,7 @@
         <thead>
             <th>#</th>
             <th>Savings Deposit</th>
+            <th>Date Paid</th>
             <th>Edit</th>
             <th>Delete</th>
         </thead>
@@ -213,6 +232,7 @@
                 <tr>
                     <td><%= index %></td>
                     <td>$<%= '%.2f' % saving.cost.round(2) %></td>
+                    <td><%= saving.date_paid %></td>
                     <td><%= link_to  "Edit", edit_user_budget_item_path(@user, @budget, saving) %></td>
                     <td><%= link_to  "Delete", user_budget_item_path(@user, @budget, saving), method: :delete %></td>
                 </tr>

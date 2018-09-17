@@ -14,6 +14,16 @@
     </div>
 
     <div class="field form-group">
+      <%= f.label :date_due %><br />
+      <%= f.date_field :date_due, autofocus: true, autocomplete: "date_due", class: "form-control" %>
+    </div>
+
+    <div class="field form-group">
+      <%= f.label :date_paid %><br />
+      <%= f.date_field :date_paid, autofocus: true, autocomplete: "date_paid", class: "form-control" %>
+    </div>
+
+    <div class="field form-group">
         <%= f.label "Category" %><br />
         <%= f.collection_select :category_id, Category.all, :id, :name %>
     </div>
